@@ -8,6 +8,10 @@ function Header() {
   const authStatus = useSelector((state) => state.auth.status);
   const navigate = useNavigate();
 
+  // By default we want show Home button irrespective of authentication status (authStatus)
+  // If user loggedIn then only we show Signup and Login buttons
+  // If user loggedIn then only weshow Allposts and Addposts buttons
+
   const navItems = [
     {
       name: "Home",
