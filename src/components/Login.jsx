@@ -65,7 +65,7 @@ function Login() {
                     "Invalid email address",
                 },
               })}
-              // When we written register inother input then the value will overwrite the current value so we write ...register
+              // When we written register in another input then the value will overwrite the current value so we write ...register
             />
             <Input
               label="Password: "

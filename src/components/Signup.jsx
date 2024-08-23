@@ -16,6 +16,7 @@ export default function Signup() {
     setError("");
     try {
       const session = await authService.createAccount(data);
+      // Once we create the account we will access currentAccount because in service we call login function in createAccount function so createAccount() perform itself
 
       if (session) {
         const userData = await authService.getCurrentUser();
