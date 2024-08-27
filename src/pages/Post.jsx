@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from "react";
-import appwriteSevice from "../appwrite/config.appwrite";
-import { useSelector } from "react-redux";
 import { Link, useNavigate, useParams } from "react-router-dom";
+import appwriteService from "../appwrite/config.appwrite";
 import { Button, Container } from "../components";
-import { parse } from "postcss";
+import parse from "html-react-parser";
+import { useSelector } from "react-redux";
 
-function Post() {
+export default function Post() {
   const [post, setPost] = useState(null);
   const { slug } = useParams();
   const navigate = useNavigate();
@@ -16,22 +16,17 @@ function Post() {
 
   useEffect(() => {
     if (slug) {
-      appwriteSevice.getPost(slug).then((post) => {
-        if (post) {
-          setPost(post);
-        } else {
-          navigate("/");
-        }
+      appwriteService.getPost(slug).then((post) => {
+        if (post) setPost(post);
+        else navigate("/");
       });
-    } else {
-      navigate("/");
-    }
+    } else navigate("/");
   }, [slug, navigate]);
 
   const deletePost = () => {
-    appwriteSevice.deletePost(post.$id).then((status) => {
+    appwriteService.deletePost(post.$id).then((status) => {
       if (status) {
-        appwriteSevice.deleteFile(post.featuredImage);
+        appwriteService.deleteFile(post.featuredImage);
         navigate("/");
       }
     });
@@ -42,9 +37,11 @@ function Post() {
       <Container>
         <div className="w-full flex justify-center mb-4 relative border rounded-xl p-2">
           <img
-            src={appwriteSevice.getFilePreview(post.featuredImage)}
+            src={appwriteService.getFilePreview(post.featuredImage)}
             alt={post.title}
+            className="rounded-xl"
           />
+
           {isAuthor && (
             <div className="absolute right-6 top-6">
               <Link to={`/edit-post/${post.$id}`}>
@@ -66,5 +63,3 @@ function Post() {
     </div>
   ) : null;
 }
-
-export default Post;

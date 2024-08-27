@@ -85,12 +85,12 @@ export class Services {
   }
 
   // TO GET ALL THE POSTS
-  async getPosts() {
+  async getPosts(queries = [Query.equal("status", "active")]) {
     try {
       return await this.databases.listDocuments(
         config.appwriteDatabaseId,
         config.appwriteCollectionId,
-        [Query.equal("status", "active")]
+        queries
       );
     } catch (error) {
       console.log("Appwrite Services :: getPosts:: error ", error);
@@ -101,7 +101,7 @@ export class Services {
   // FILE UPLOAD (image)
   async uploadFile(file) {
     try {
-      return await this.storage.creatFile(
+      return await this.storage.createFile(
         config.appwriteBucketId,
         ID.unique(),
         file

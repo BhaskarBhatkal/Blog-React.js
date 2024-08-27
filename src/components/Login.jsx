@@ -61,8 +61,8 @@ function Login() {
                 required: true,
                 validate: {
                   matchPatern: (value) =>
-                    /\b[\w\.-]+@[\w\.-]+\.\w{2,4}\b/gi.test(value) ||
-                    "Invalid email address",
+                    /^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/.test(value) ||
+                    "Email address must be a valid address",
                 },
               })}
               // When we written register in another input then the value will overwrite the current value so we write ...register

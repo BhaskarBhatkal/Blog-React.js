@@ -24,6 +24,7 @@ export default function Signup() {
         navigate("/");
       }
     } catch (error) {
+      console.log("Error in signUp: ", error);
       setError(error.message);
     }
   };
