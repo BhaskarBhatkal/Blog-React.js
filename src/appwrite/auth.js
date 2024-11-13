@@ -61,6 +61,8 @@ export class AuthService {
     }
   }
 }
+
+// Everytime new user instance will add, Otherrwise everytime new user logged In the user data will overwrite
 const authService = new AuthService();
 
 export default authService;
