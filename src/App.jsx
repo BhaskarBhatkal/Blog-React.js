@@ -14,7 +14,7 @@ function App() {
       .getCurrentUser()
       .then((userData) => {
         if (userData) {
-          dispatch(login({ userData }));
+          dispatch(login(userData));
         } else {
           dispatch(logout());
         }
@@ -23,7 +23,7 @@ function App() {
   }, []);
 
   return !loading ? (
-    <div className="min-h-screen flex flex-wrap content-between bg-gray-400">
+    <div className="min-h-screen flex flex-wrap content-between bg-[#081d2c]">
       <div className="w-full block">
         <Header />
         <main>
