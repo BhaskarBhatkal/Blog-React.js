@@ -74,6 +74,7 @@ function Login() {
               {...register("password", { required: true })}
             />
             <Button type="submit" className="w-full">
+              {/* This is the text (children) */}
               Sign in
             </Button>
           </div>
