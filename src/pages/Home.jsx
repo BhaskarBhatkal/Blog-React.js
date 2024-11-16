@@ -16,7 +16,7 @@ function Home() {
     });
   }, []);
 
-  if (posts.length === 0 || !userStatus) {
+  if (posts.length === 0 || userStatus === false) {
     return (
       <div className="w-full py-8 mt-4 text-center">
         <Container>
