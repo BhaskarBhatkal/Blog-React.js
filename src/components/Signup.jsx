@@ -81,7 +81,10 @@ export default function Signup() {
               placeholder="Enter your password"
               {...register("password", { required: true })}
             />
-            <Button type="submit" className="w-full">
+            <Button
+              type="submit"
+              className="w-full bg-gradient-to-r from-blue-700 to-blue-950 transform transition-transform  duration-400 hover:scale-105"
+            >
               Create Account
               {error && console.log(error)}
             </Button>

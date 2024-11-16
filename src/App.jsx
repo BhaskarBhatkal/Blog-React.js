@@ -14,7 +14,7 @@ function App() {
       .getCurrentUser()
       .then((userData) => {
         if (userData) {
-          dispatch(login(userData));
+          dispatch(login({ userData }));
         } else {
           dispatch(logout());
         }
@@ -27,7 +27,6 @@ function App() {
       <div className="w-full block">
         <Header />
         <main>
-          {/* TODO */}
           <Outlet />
         </main>
         <Footer />
