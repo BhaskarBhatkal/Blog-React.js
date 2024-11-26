@@ -35,11 +35,11 @@ export default function Post() {
   return post ? (
     <div className="py-8">
       <Container>
-        <div className="w-full flex justify-center mb-4 relative border border-[#15445f] rounded-xl p-2">
+        <div className="w-full flex justify-center mb-4 relative border border-[#15445f] rounded-xl p-2 overflow-hidden">
           <img
             src={appwriteService.getFilePreview(post.featuredImage)}
             alt={post.title}
-            className="rounded-xl"
+            className="rounded-xl max-w-full max-h-[500px] object-cover"
           />
 
           {isAuthor && (
@@ -55,10 +55,11 @@ export default function Post() {
             </div>
           )}
         </div>
-        <div className="w-full mb-6">
+
+        <div className="w-full mb-5">
           <h1 className="text-2xl font-bold text-[#ffffff]">{post.title}</h1>
         </div>
-        <div className="browser-css text-[#d2e4f1] font-semibold">
+        <div className="browser-css text-[#d2e4f1] font-semibold text-[16px]">
           {parse(post.content)}
         </div>
       </Container>

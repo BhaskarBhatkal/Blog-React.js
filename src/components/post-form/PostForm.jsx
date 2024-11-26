@@ -18,7 +18,6 @@ export default function PostForm({ post }) {
 
   const navigate = useNavigate();
   const userData = useSelector((state) => state.auth.userData);
-
   const submit = async (data) => {
     if (post) {
       const file = data.image[0]
@@ -103,7 +102,7 @@ export default function PostForm({ post }) {
           defaultValue={getValues("content")}
         />
       </div>
-      <div className="w-1/3 px-2">
+      <div className="w-1/3 px-2 text-white">
         <Input
           label="Featured Image :"
           type="file"
