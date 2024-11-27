@@ -18,6 +18,7 @@ export default function PostForm({ post }) {
 
   const navigate = useNavigate();
   const userData = useSelector((state) => state.auth.userData);
+  console.log("Postform :: Userdata:", userData);
   const submit = async (data) => {
     if (post) {
       const file = data.image[0]
